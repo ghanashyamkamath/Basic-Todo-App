@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','TaskController@index');
 Route::post('/tasks','TaskController@store');
+Route::delete('/tasks/{task_id}','TaskController@destroy');

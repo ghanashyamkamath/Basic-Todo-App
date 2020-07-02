@@ -56,7 +56,7 @@ class TaskController extends Controller
         }catch(\Exception $e){
             return back()->withErrors(['']);
         }
-        $task->isCompleted = $task->isCompleted ? 0 : 1;
+        $task->is_completed = $task->is_completed ? 0 : 1;
         $task->save();
         
         return redirect('/');

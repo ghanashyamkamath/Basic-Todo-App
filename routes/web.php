@@ -19,4 +19,4 @@ Route::post('/tasks','TaskController@store');
 Route::delete('/tasks/{task_id}','TaskController@destroy');
 Route::get('/tasks/{task_id}','TaskController@edit');
 Route::put('/tasks/{task_id}','TaskController@update');
-Route::put('/task/{task_id}/done','TaskController@complete');
+Route::put('/tasks/{task_id}/done','TaskController@complete');

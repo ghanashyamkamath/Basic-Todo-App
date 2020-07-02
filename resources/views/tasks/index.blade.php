@@ -21,11 +21,15 @@
             <br>
             <ul class="list-group">
                 <li class="font-weight-bolder list-group-item" style="display:flex;"> 
-                    <span class="{{ $task->isCompleted ? "completed" : ""}}">
+                    <span class="{{ $task->is_completed ? "completed" : ""}}" style="flex:7">
                         {{ $task->title }}
                     </span>
-                    <span style="flex:7">{{$task->title}}</span>
-                    <button class="btn btn-success" style="height: 40px;">Done</button>&nbsp;
+
+                    <form action="/tasks/{{$task->id}}/done" method="POST" style="display: inline">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="_method" value="PUT">
+                        <button class="btn btn-success" style="height: 40px;">Done</button>&nbsp;
+                    </form>
 
                     <a href="/tasks/{{$task->id}}"> 
                     <button class="btn btn-primary" style="height: 40px;">Edit</button>&nbsp;

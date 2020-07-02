@@ -26,5 +26,29 @@ class TaskController extends Controller
         return redirect('/');   
 
     }
+    public function edit($task_id){
+        try{
+            $task = Task::findOrfail($task_id);
+        }
+        catch(\Exception $e){
+            return back()->withErrors(['']);
+        }
+        return view('tasks.edit',compact('task'));
+    }
+    public function update(Request $request,$task_id){
+        try{
+            $task = Task::findOrfail($task_id);
+        }
+        catch(\Exception $e){
+            return back()->withErrors(['']);
+        }
+        $data = $request->validate([
+            'title'=>'required'
+        ]);
+        // dd($data);
+        $task->update($data);
+
+        return redirect('/');
+    }
 
 }

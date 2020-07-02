@@ -12,13 +12,19 @@
     <h1 class="container text-center text-light">TASKS</h1>
     <span class="container" >
     @foreach ($data as $task)
-        <h3 class="container">
+        <h3 class="container text-center">
+            <br>
             <ul class="list-group">
                 <li class="list-group-item" style="display:flex;"> 
+
                     <span style="flex:7">{{$task->title}}</span>
+                    <a href="/tasks/{{$task->id}}"> 
+                    <button class="btn btn-primary" style="height: 40px;">Edit</button>&nbsp;
+                    </a>
                     <form action="/tasks/{{$task->id}}" method="POST" style="display: inline">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="DELETE">
+
                         <button class="btn btn-danger" style="flex:1">Delete</button>
                     </form>
                 </li> 

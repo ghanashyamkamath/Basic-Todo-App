@@ -7,6 +7,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css">
     <title>Tasks</title>
+    <style>
+        .completed{
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 <body class="bg-dark">
     <h1 class="container text-center text-light">TASKS</h1>
@@ -15,9 +20,13 @@
         <h3 class="container text-center">
             <br>
             <ul class="list-group">
-                <li class="list-group-item" style="display:flex;"> 
-
+                <li class="font-weight-bolder list-group-item" style="display:flex;"> 
+                    <span class="{{ $task->isCompleted ? "completed" : ""}}">
+                        {{ $task->title }}
+                    </span>
                     <span style="flex:7">{{$task->title}}</span>
+                    <button class="btn btn-success" style="height: 40px;">Done</button>&nbsp;
+
                     <a href="/tasks/{{$task->id}}"> 
                     <button class="btn btn-primary" style="height: 40px;">Edit</button>&nbsp;
                     </a>

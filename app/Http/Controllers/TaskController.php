@@ -50,5 +50,18 @@ class TaskController extends Controller
 
         return redirect('/');
     }
+    public function complete($task_id){
+        try{
+            $task =Task::findOrfail($task_id);
+        }catch(\Exception $e){
+            return back()->withErrors(['']);
+        }
+        $task->isCompleted = $task->isCompleted ? 0 : 1;
+        $task->save();
+        
+        return redirect('/');
+        
+        
+    }
 
 }

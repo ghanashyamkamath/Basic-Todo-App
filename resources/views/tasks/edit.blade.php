@@ -18,7 +18,7 @@
         </div>
             <br>
         <div>
-            <input type="submit" value="Edit" class="btn btn-primary">
+            <input type="submit" value="Edit" class="btn btn-primary animate__animated animate__wobble">
         </div>
     </form>
 </body>
